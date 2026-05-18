@@ -1,0 +1,29 @@
+{
+    "keys": [
+        {
+ 			"name": "ingredient",
+			"role": "input",
+			"type": "ingredient"
+				
+        },
+        {
+            "name": "inputCount",
+            "role": "other",
+            "type": "int"
+        },
+        {
+ 			"name": "result",
+			"role": "output",
+			"type": "optional_item_stack",
+            "function_names": ["itemResult"],
+	        "optional": {}
+        },
+        {
+ 			"name": "fluidResult",
+			"role": "output",
+			"type": "optional_fluid_stack",
+            "function_names": ["fluidResult"],
+	        "optional": {}
+        }
+    ]
+}
