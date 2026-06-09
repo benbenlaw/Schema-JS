@@ -80,6 +80,16 @@ dependencies {
     runtimeOnly("curse.maven:connectivity-470193:7866655")
     //Cupboard
     runtimeOnly("curse.maven:cupboard-326652:7904113")
+    //KubeJS
+    implementation("curse.maven:kubejs-238086:8219059")
+    //Rhino
+    implementation("curse.maven:rhino-416294:8218748")
+    //BBL Core
+    implementation("curse.maven:bbl-core-1135181:8220864")
+    //BBL Strainers
+    implementation("curse.maven:bbl-strainers-882351:8211922")
+    //BBL Utility
+    implementation("curse.maven:bbl-utility-649644:8221171")
 
 
 }

@@ -1,0 +1,16 @@
+{
+    "keys": [
+        {
+ 			"name": "fluid",
+			"role": "input",
+			"type": "sized_fluid_ingredient"
+	
+        },
+        {
+ 			"name": "temp",
+			"role": "other",
+			"type": "int"
+	
+        }
+    ]
+}

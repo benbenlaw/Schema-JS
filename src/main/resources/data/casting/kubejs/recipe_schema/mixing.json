@@ -1,0 +1,19 @@
+{
+    "keys": [
+        {
+ 			"name": "output",
+			"role": "output",
+			"type": "fluid_stack"
+	
+        },
+        {
+ 			"name": "inputs",
+			"role": "input",
+			"type": {
+				"type": "list",
+				"component": "sized_fluid_ingredient",
+				"spread": "sized_fluid_ingredient"
+			}
+        }
+    ]
+}        

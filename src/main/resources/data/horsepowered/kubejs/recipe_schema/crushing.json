@@ -1,0 +1,37 @@
+{
+    "keys": [
+        {
+ 			"name": "result",
+			"role": "output",
+			"type": "item_stack"
+	
+        },
+        {
+ 			"name": "ingredient",
+			"role": "input",
+			"type": "ingredient"
+				
+        },
+        {
+            "name": "time",
+            "role": "other",
+            "type": "int"
+        },
+        {
+            "name": "priority",
+            "role": "other",
+            "type": "int",
+            "function_names": ["priority"],
+	        "optional": 0,
+            "always_write": true
+        },
+        {
+            "name": "hungerCost",
+            "role": "other",
+            "type": "float",
+            "function_names": ["hungerCost"],
+	        "optional": 0.0,
+            "always_write": true
+        }
+    ]
+}

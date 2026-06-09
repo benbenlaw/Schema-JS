@@ -27,5 +27,9 @@ public class SchemaJS {
 
     }
 
+
+    public static Identifier identifier(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    }
 }
 

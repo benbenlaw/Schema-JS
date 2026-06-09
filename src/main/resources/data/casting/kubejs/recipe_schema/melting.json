@@ -1,0 +1,34 @@
+{
+    "keys": [
+        {
+ 			"name": "output",
+			"role": "output",
+			"type": {
+				"type": "list",
+				"component": "fluid_stack",
+				"spread": "fluid_stack"
+			}
+	
+        },
+        {
+ 			"name": "input",
+			"role": "input",
+			"type": "sized_ingredient"
+	
+        },
+        {
+ 			"name": "melting_temp",
+			"role": "other",
+			"type": "int"
+	
+        },
+        {
+            "name": "duration_modifier",
+            "role": "other",
+            "type": "double",
+            "function_names": ["durationModifier"],
+	        "optional": 0.0,
+            "always_write": true
+        }
+    ]
+}        

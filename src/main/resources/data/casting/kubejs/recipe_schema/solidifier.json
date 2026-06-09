@@ -1,0 +1,36 @@
+{
+    "keys": [
+        {
+ 			"name": "output",
+			"role": "output",
+			"type": "sized_ingredient"
+	
+        },
+        {
+ 			"name": "mold",
+			"role": "input",
+			"type": "sized_ingredient"
+	
+        },
+        {
+ 			"name": "fluid",
+			"role": "input",
+			"type": "sized_fluid_ingredient"
+	
+        },
+        {
+ 			"name": "melting_temp",
+			"role": "input",
+			"type": "int"
+	
+        },
+        {
+            "name": "duration_modifier",
+            "role": "other",
+            "type": "double",
+            "function_names": ["durationModifier"],
+	        "optional": 0.0,
+            "always_write": true
+        }
+    ]
+}        
