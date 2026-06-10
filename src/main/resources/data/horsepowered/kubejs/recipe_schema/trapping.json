@@ -1,0 +1,62 @@
+{
+    "keys": [
+        {
+ 			"name": "bait",
+			"role": "input",
+			"type": "ingredient"
+        },
+        {
+            "name": "entity",
+            "role": "output",
+            "type": "string"
+        },
+        {
+          "name": "time",
+          "role": "other",
+          "type": "int",
+          "function_names": ["time"],
+          "optional": 1200,
+          "always_write": false
+        },
+        {
+          "name": "priority",
+          "role": "other",
+          "type": "int",
+          "function_names": ["priority"],
+          "optional": 0,
+          "always_write": false
+        },
+        {
+          "name": "biome",
+          "role": "other",
+          "type": "biome_filter",
+          "function_names": ["biome"],
+          "optional": "minecraft:plains",
+          "always_write": false
+        },
+        {
+          "name": "waterlogged",
+          "role": "other",
+          "type": "boolean",
+          "function_names": ["waterlogged"],
+          "optional": false,
+          "always_write": false
+        },
+        {
+          "name": "baitConsumed",
+          "role": "other",
+          "type": "boolean",
+          "function_names": ["baitConsumed"],
+          "optional": false,
+          "always_write": true
+        },
+        {
+          "name": "baitConsumeChance",
+          "role": "other",
+          "type": "double",
+          "function_names": ["baitConsumeChance"],
+          "optional": 10.0,
+          "always_write": true
+        }
+    ]
+}

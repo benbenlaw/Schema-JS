@@ -94,6 +94,8 @@ dependencies {
     implementation("curse.maven:cucumber-272335:8178456")
     //Cucumber Core
     implementation("curse.maven:mystical-agriculture-246640:8130326")
+    //Horse Powered
+    implementation("curse.maven:horse-powered-1408330:8158328")
 
 
 }

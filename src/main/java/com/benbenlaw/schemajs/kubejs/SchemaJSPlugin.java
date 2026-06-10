@@ -3,10 +3,7 @@ package com.benbenlaw.schemajs.kubejs;
 import com.benbenlaw.schemajs.kubejs.bbl.*;
 import com.benbenlaw.schemajs.kubejs.cucumber.OutputResolverComponent;
 import com.benbenlaw.schemajs.kubejs.cucumber.SoulExtractionResultComponent;
-import com.benbenlaw.schemajs.kubejs.util.CompoundTagComponent;
-import com.benbenlaw.schemajs.kubejs.util.EnchantmentComponent;
-import com.benbenlaw.schemajs.kubejs.util.EntityTypeComponent;
-import com.benbenlaw.schemajs.kubejs.util.WeightedEntityListComponent;
+import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.strainers.Strainers;
 import com.benbenlaw.utility.Utility;
 import dev.latvian.mods.kubejs.event.EventGroup;
@@ -60,6 +57,7 @@ public class SchemaJSPlugin implements KubeJSPlugin {
         registry.unit(EntityTypeComponent.ENTITY_TYPE);
         registry.unit(EnchantmentComponent.ENCHANTMENT);
         registry.unit(WeightedEntityListComponent.ENTITY_LIST);
+        registry.unit(BiomeFilterComponent.BIOME_FILTER);
     }
 
     @Override
