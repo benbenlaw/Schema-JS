@@ -1,0 +1,14 @@
+{
+    "keys": [
+        {
+            "name": "result",
+            "role": "output",
+            "type": "soul_result"
+        },
+        {
+            "name": "input",
+            "role": "input",
+            "type": "ingredient"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "keys": [
+        {
+ 			"name": "enchantment",
+			"role": "other",
+			"type": "enchantment"
+        },
+        {
+ 			"name": "ingredients",
+			"role": "input",
+			"type":  {
+				"type": "list",
+				"component": "sized_ingredient",
+				"spread": "sized_ingredient"
+			}
+        }
+    ]
+}

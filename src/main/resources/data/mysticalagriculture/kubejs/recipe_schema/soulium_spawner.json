@@ -1,0 +1,14 @@
+{
+    "keys": [
+        {
+            "name": "entities",
+            "role": "output",
+            "type": "entity_list"
+        },
+        {
+            "name": "input",
+            "role": "input",
+            "type": "sized_ingredient"
+        }
+    ]
+}

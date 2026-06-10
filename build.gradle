@@ -90,6 +90,10 @@ dependencies {
     implementation("curse.maven:bbl-strainers-882351:8211922")
     //BBL Utility
     implementation("curse.maven:bbl-utility-649644:8221171")
+    //Cucumber Core
+    implementation("curse.maven:cucumber-272335:8178456")
+    //Cucumber Core
+    implementation("curse.maven:mystical-agriculture-246640:8130326")
 
 
 }

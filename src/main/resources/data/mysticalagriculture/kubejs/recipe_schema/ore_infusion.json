@@ -1,0 +1,18 @@
+{
+    "keys": [
+        {
+            "name": "result",
+            "role": "output",
+            "type": "output_resolver"
+        },
+        {
+ 			"name": "ingredients",
+			"role": "input",
+			"type":  {
+				"type": "list",
+				"component": "sized_ingredient",
+				"spread": "sized_ingredient"
+			}
+        }
+    ]
+}

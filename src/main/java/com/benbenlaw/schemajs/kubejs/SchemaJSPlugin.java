@@ -1,8 +1,12 @@
 package com.benbenlaw.schemajs.kubejs;
 
 import com.benbenlaw.schemajs.kubejs.bbl.*;
+import com.benbenlaw.schemajs.kubejs.cucumber.OutputResolverComponent;
+import com.benbenlaw.schemajs.kubejs.cucumber.SoulExtractionResultComponent;
 import com.benbenlaw.schemajs.kubejs.util.CompoundTagComponent;
+import com.benbenlaw.schemajs.kubejs.util.EnchantmentComponent;
 import com.benbenlaw.schemajs.kubejs.util.EntityTypeComponent;
+import com.benbenlaw.schemajs.kubejs.util.WeightedEntityListComponent;
 import com.benbenlaw.strainers.Strainers;
 import com.benbenlaw.utility.Utility;
 import dev.latvian.mods.kubejs.event.EventGroup;
@@ -45,8 +49,17 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             registry.unit(BlockTargetComponent.BLOCK_TARGET);
         }
 
+        if (ModList.get().isLoaded("cucumber")) {
+            registry.unit(OutputResolverComponent.OUTPUT_RESOLVER);
+            if (ModList.get().isLoaded("mysticalagriculture")) {
+                registry.unit(SoulExtractionResultComponent.SOUL_RESULT);
+            }
+        }
+
         registry.unit(CompoundTagComponent.COMPOUND_TAG);
         registry.unit(EntityTypeComponent.ENTITY_TYPE);
+        registry.unit(EnchantmentComponent.ENCHANTMENT);
+        registry.unit(WeightedEntityListComponent.ENTITY_LIST);
     }
 
     @Override
