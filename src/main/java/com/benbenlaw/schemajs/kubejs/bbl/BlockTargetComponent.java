@@ -4,6 +4,7 @@ import com.benbenlaw.utility.util.BlockTarget;
 import com.benbenlaw.utility.util.BlockTargetCodec;
 import com.mojang.serialization.Codec;
 import dev.latvian.mods.kubejs.error.InvalidRecipeComponentValueException;
+import dev.latvian.mods.kubejs.plugin.builtin.wrapper.BlockWrapper;
 import dev.latvian.mods.kubejs.recipe.RecipeScriptContext;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponent;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponentType;
@@ -87,27 +88,15 @@ public record BlockTargetComponent(ResourceKey<RecipeComponentType<?>> type, Cod
         if (from instanceof String s) {
             s = s.trim();
 
-            // TAG support: "#minecraft:logs"
             if (s.startsWith("#")) {
                 Identifier id = Identifier.tryParse(s.substring(1));
                 if (id == null) {
                     throw new IllegalArgumentException("Invalid block tag: " + s);
                 }
-
                 return new BlockTarget.Tag(TagKey.create(Registries.BLOCK, id));
             }
 
-            // BLOCKSTATE: "minecraft:stone"
-            Identifier id = Identifier.tryParse(s);
-            if (id == null) {
-                throw new IllegalArgumentException("Invalid block id: " + s);
-            }
-
-            String finalS = s;
-            BlockState state = BuiltInRegistries.BLOCK.getOptional(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Unknown block: " + finalS))
-                    .defaultBlockState();
-
+            BlockState state = BlockWrapper.parseBlockState(cx.cx(), s);
             return new BlockTarget.Single(state);
         }
 
