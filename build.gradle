@@ -81,13 +81,13 @@ dependencies {
     //Cupboard
     runtimeOnly("curse.maven:cupboard-326652:7904113")
     //KubeJS
-    implementation("curse.maven:kubejs-238086:8219059")
+    implementation("curse.maven:kubejs-238086:8235730")
     //Rhino
     implementation("curse.maven:rhino-416294:8218748")
     //BBL Core
     implementation("curse.maven:bbl-core-1135181:8220864")
     //BBL Strainers
-    implementation("curse.maven:bbl-strainers-882351:8211922")
+    implementation("curse.maven:bbl-strainers-882351:8251445")
     //BBL Utility
     implementation("curse.maven:bbl-utility-649644:8221171")
     //Cucumber Core
@@ -96,8 +96,10 @@ dependencies {
     implementation("curse.maven:mystical-agriculture-246640:8130326")
     //Horse Powered
     implementation("curse.maven:horse-powered-1408330:8158328")
-
-
+    //AE2
+    implementation("curse.maven:applied-energistics-2-223794:8129795")
+    //Guide ME
+    implementation("curse.maven:guideme-1173950:8204880")
 }
 
 tasks.withType(ProcessResources).configureEach {
