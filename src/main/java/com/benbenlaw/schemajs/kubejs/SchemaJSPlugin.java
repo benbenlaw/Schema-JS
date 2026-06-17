@@ -15,6 +15,8 @@ import dev.latvian.mods.kubejs.event.EventGroupRegistry;
 import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponentTypeRegistry;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchemaRegistry;
+import dev.latvian.mods.kubejs.registry.BuilderTypeRegistry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.neoforged.fml.ModList;
 
@@ -79,6 +81,14 @@ public class SchemaJSPlugin implements KubeJSPlugin {
         registry.unit(EnchantmentComponent.ENCHANTMENT);
         registry.unit(WeightedEntityListComponent.ENTITY_LIST);
         registry.unit(BiomeFilterComponent.BIOME_FILTER);
+    }
+
+
+    @Override
+    public void registerBuilderTypes(BuilderTypeRegistry registry) {
+        if (ModList.get().isLoaded("strainers")) {
+            registry.of(Registries.ITEM, r -> r.add(Strainers.identifier("strainers_drop"), DropItemBuilder.class, DropItemBuilder::new ));
+        }
     }
 
     @Override
