@@ -100,6 +100,9 @@ dependencies {
     implementation("curse.maven:applied-energistics-2-223794:8129795")
     //Guide ME
     implementation("curse.maven:guideme-1173950:8204880")
+    //Infinity Drives
+    implementation("curse.maven:infinity-drives-1386843:8103133")
+
 }
 
 tasks.withType(ProcessResources).configureEach {

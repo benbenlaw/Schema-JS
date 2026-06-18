@@ -86,8 +86,13 @@ public class SchemaJSPlugin implements KubeJSPlugin {
 
     @Override
     public void registerBuilderTypes(BuilderTypeRegistry registry) {
+
         if (ModList.get().isLoaded("strainers")) {
             registry.of(Registries.ITEM, r -> r.add(Strainers.identifier("strainers_drop"), DropItemBuilder.class, DropItemBuilder::new ));
+        }
+
+        if (ModList.get().isLoaded("infinitystorage")) {
+            registry.of(Registries.ITEM, r -> r.add(Strainers.identifier("infinity_drive"), InfinityDriveBuilder.class, InfinityDriveBuilder::new ));
         }
     }
 
