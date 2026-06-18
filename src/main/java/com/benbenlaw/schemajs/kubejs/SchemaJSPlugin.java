@@ -1,5 +1,6 @@
 package com.benbenlaw.schemajs.kubejs;
 
+import com.benbenlaw.cloche.Cloche;
 import com.benbenlaw.schemajs.kubejs.ae2.*;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.EntropyOutputComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.InscriberIngredientsComponent;
@@ -27,6 +28,10 @@ public class SchemaJSPlugin implements KubeJSPlugin {
 
     @Override
     public void registerRecipeSchemas(RecipeSchemaRegistry event) {
+
+        if (ModList.get().isLoaded("cloche")) {
+            event.register(Cloche.identifier("cloche"), ClocheRecipeJS.SCHEMA);
+        }
 
         //BBL Strainers
         if (ModList.get().isLoaded("strainers")) {

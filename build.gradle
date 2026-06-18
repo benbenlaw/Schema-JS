@@ -102,6 +102,8 @@ dependencies {
     implementation("curse.maven:guideme-1173950:8204880")
     //Infinity Drives
     implementation("curse.maven:infinity-drives-1386843:8103133")
+    //Cloche
+    implementation("curse.maven:bbl-cloche-1153960:8128509")
 
 }
 
