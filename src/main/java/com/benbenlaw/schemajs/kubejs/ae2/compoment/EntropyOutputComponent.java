@@ -8,6 +8,7 @@ import dev.latvian.mods.kubejs.error.InvalidRecipeComponentValueException;
 import dev.latvian.mods.kubejs.recipe.RecipeScriptContext;
 import dev.latvian.mods.kubejs.recipe.component.*;
 import dev.latvian.mods.kubejs.recipe.filter.RecipeMatchContext;
+import dev.latvian.mods.kubejs.recipe.match.ReplacementMatchInfo;
 import dev.latvian.mods.kubejs.util.OpsContainer;
 import dev.latvian.mods.rhino.type.TypeInfo;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -15,6 +16,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluid;
@@ -51,6 +53,20 @@ public record EntropyOutputComponent(ResourceKey<RecipeComponentType<?>> type, C
         value.block().ifPresent(b -> builder.append("block_" + BuiltInRegistries.BLOCK.getKey(b.block())));
         value.fluid().ifPresent(f -> builder.append("fluid_" + BuiltInRegistries.FLUID.getKey(f.fluid())));
         if (!value.drops().isEmpty()) builder.append("drops_" + value.drops().size());
+    }
+
+    @Override
+    public boolean matches(RecipeMatchContext cx, Output value, ReplacementMatchInfo match) {
+        Object rawMatch = match.match();
+        if (rawMatch instanceof Ingredient ingredient) {
+            for (var template : value.drops()) {
+                ItemStack stack = template.create();
+                if (!stack.isEmpty() && ingredient.test(stack)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     @Override

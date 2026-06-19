@@ -1,5 +1,6 @@
 package com.benbenlaw.schemajs.kubejs.ae2.compoment;
 
+import appeng.recipes.entropy.EntropyRecipe;
 import appeng.recipes.entropy.EntropyRecipe.BlockInput;
 import appeng.recipes.entropy.EntropyRecipe.FluidInput;
 import appeng.recipes.entropy.EntropyRecipe.Input;
@@ -9,11 +10,14 @@ import dev.latvian.mods.kubejs.error.InvalidRecipeComponentValueException;
 import dev.latvian.mods.kubejs.recipe.RecipeScriptContext;
 import dev.latvian.mods.kubejs.recipe.component.*;
 import dev.latvian.mods.kubejs.recipe.filter.RecipeMatchContext;
+import dev.latvian.mods.kubejs.recipe.match.ReplacementMatchInfo;
 import dev.latvian.mods.kubejs.util.OpsContainer;
 import dev.latvian.mods.rhino.type.TypeInfo;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,6 +55,11 @@ public record EntropyInputComponent(ResourceKey<RecipeComponentType<?>> type, Co
     public void buildUniqueId(@NonNull UniqueIdBuilder builder, Input value) {
         value.block().ifPresent(b -> builder.append("block_" + BuiltInRegistries.BLOCK.getKey(b.block())));
         value.fluid().ifPresent(f -> builder.append("fluid_" + BuiltInRegistries.FLUID.getKey(f.fluid())));
+    }
+
+    @Override
+    public boolean matches(RecipeMatchContext cx, Input value, ReplacementMatchInfo match) {
+        return false;
     }
 
     @Override

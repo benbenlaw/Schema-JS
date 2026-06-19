@@ -19,6 +19,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jspecify.annotations.NonNull;
 
 import javax.annotation.Nullable;
@@ -47,6 +48,14 @@ public record OutputResolverComponent(ResourceKey<RecipeComponentType<?>> type, 
 
     @Override
     public boolean matches(RecipeMatchContext cx, OutputResolver value, ReplacementMatchInfo match) {
+        Object rawMatch = match.match();
+        if (rawMatch instanceof Ingredient ingredient) {
+            ItemStack stack = value.resolve().create();
+            if (stack.isEmpty()) {
+                return false;
+            }
+            return ingredient.test(stack);
+        }
         return false;
     }
 

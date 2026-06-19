@@ -10,6 +10,7 @@ import dev.latvian.mods.kubejs.recipe.match.ReplacementMatchInfo;
 import dev.latvian.mods.kubejs.util.OpsContainer;
 import dev.latvian.mods.rhino.type.TypeInfo;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jspecify.annotations.NonNull;
 
@@ -17,22 +18,9 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Wraps [top?, middle, bottom?] as a list in KubeJS scripts but serializes
- * to AE2's expected { top, middle, bottom } ingredient object structure.
- *
- * List ordering: [top, middle, bottom]
- *   1 element  → middle only
- *   2 elements → top + middle
- *   3 elements → top + middle + bottom
- */
-public record InscriberIngredientsComponent(ResourceKey<RecipeComponentType<?>> type,
-        Codec<InscriberIngredients> codec
-) implements RecipeComponent<InscriberIngredientsComponent.InscriberIngredients> {
+public record InscriberIngredientsComponent(ResourceKey<RecipeComponentType<?>> type, Codec<InscriberIngredients> codec) implements RecipeComponent<InscriberIngredientsComponent.InscriberIngredients> {
 
-    /**
-     * The serialized form matching AE2's Ingredients record codec exactly.
-     */
+
     public record InscriberIngredients(
             Optional<Ingredient> top,
             Ingredient middle,
@@ -67,6 +55,15 @@ public record InscriberIngredientsComponent(ResourceKey<RecipeComponentType<?>> 
 
     @Override
     public boolean matches(@NonNull RecipeMatchContext cx, @NonNull InscriberIngredients value, @NonNull ReplacementMatchInfo match) {
+        Object rawMatch = match.match();
+        if (rawMatch instanceof Ingredient ingredient) {
+            for (var holder : ingredient.items().toList()) {
+                ItemStack stack = new ItemStack(holder);
+                if (value.middle().test(stack)) return true;
+                if (value.top().isPresent() && value.top().get().test(stack)) return true;
+                if (value.bottom().isPresent() && value.bottom().get().test(stack)) return true;
+            }
+        }
         return false;
     }
 

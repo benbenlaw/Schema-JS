@@ -6,8 +6,10 @@ import com.benbenlaw.schemajs.kubejs.ae2.compoment.EntropyOutputComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.InscriberIngredientsComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.TransformCircumstanceComponent;
 import com.benbenlaw.schemajs.kubejs.bbl.*;
+import com.benbenlaw.schemajs.kubejs.cucumber.OreInfusionJS;
 import com.benbenlaw.schemajs.kubejs.cucumber.OutputResolverComponent;
 import com.benbenlaw.schemajs.kubejs.cucumber.SoulExtractionResultComponent;
+import com.benbenlaw.schemajs.kubejs.cucumber.SoulExtractorJS;
 import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.strainers.Strainers;
 import com.benbenlaw.utility.Utility;
@@ -53,6 +55,12 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             event.register(Identifier.fromNamespaceAndPath("ae2", "entropy"), EntropyRecipeJS.SCHEMA);
             event.register(Identifier.fromNamespaceAndPath("ae2", "matter_cannon"), MatterCannonAmmoJS.SCHEMA);
             event.register(Identifier.fromNamespaceAndPath("ae2", "transform"), TransformRecipeJS.SCHEMA);
+        }
+
+        //Mystical
+        if (ModList.get().isLoaded("mysticalagriculture")) {
+            event.register(Identifier.fromNamespaceAndPath("mysticalagriculture", "soul_extraction"), SoulExtractorJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("mysticalagriculture", "ore_infusion"), OreInfusionJS.SCHEMA);
         }
     }
 

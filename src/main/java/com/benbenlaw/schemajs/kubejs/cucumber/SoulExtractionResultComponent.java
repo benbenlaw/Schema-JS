@@ -14,8 +14,12 @@ import dev.latvian.mods.kubejs.util.OpsContainer;
 import dev.latvian.mods.rhino.NativeArray;
 import dev.latvian.mods.rhino.NativeObject;
 import dev.latvian.mods.rhino.type.TypeInfo;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import org.jspecify.annotations.NonNull;
 
 import javax.annotation.Nullable;
@@ -53,7 +57,15 @@ public record SoulExtractionResultComponent(ResourceKey<RecipeComponentType<?>> 
 
     @Override
     public boolean matches(RecipeMatchContext cx, Result value, ReplacementMatchInfo match) {
-        return true;
+        Object rawMatch = match.match();
+        if (rawMatch instanceof Ingredient ingredient) {
+            var item = BuiltInRegistries.ITEM.getValue(value.type());
+            if (item == null || item == Items.AIR) {
+                return false;
+            }
+            return ingredient.test(new ItemStack(item));
+        }
+        return false;
     }
 
     @Override
