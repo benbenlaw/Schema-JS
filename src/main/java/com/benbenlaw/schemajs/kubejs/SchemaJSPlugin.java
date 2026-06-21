@@ -6,26 +6,36 @@ import com.benbenlaw.schemajs.kubejs.ae2.compoment.EntropyOutputComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.InscriberIngredientsComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.TransformCircumstanceComponent;
 import com.benbenlaw.schemajs.kubejs.bbl.*;
-import com.benbenlaw.schemajs.kubejs.cucumber.OreInfusionJS;
-import com.benbenlaw.schemajs.kubejs.cucumber.OutputResolverComponent;
-import com.benbenlaw.schemajs.kubejs.cucumber.SoulExtractionResultComponent;
-import com.benbenlaw.schemajs.kubejs.cucumber.SoulExtractorJS;
+import com.benbenlaw.schemajs.kubejs.cucumber.*;
 import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.strainers.Strainers;
 import com.benbenlaw.utility.Utility;
+import com.blakebr0.cucumber.event.RecipeManagerLoadingEvent;
 import dev.latvian.mods.kubejs.event.EventGroup;
 import dev.latvian.mods.kubejs.event.EventGroupRegistry;
+import dev.latvian.mods.kubejs.event.EventHandler;
 import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponentTypeRegistry;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchemaRegistry;
 import dev.latvian.mods.kubejs.registry.BuilderTypeRegistry;
+import dev.latvian.mods.kubejs.script.ScriptManager;
+import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
 
 public class SchemaJSPlugin implements KubeJSPlugin {
 
     public static EventGroup GROUP = EventGroup.of("SchemaJSCompatEvents");
+    public static EventHandler MA_SEED_CRAFTING;
+
+    static {
+        if (ModList.get().isLoaded("mysticalagriculture")) {
+            MA_SEED_CRAFTING = GROUP.server("mysticalAgricultureSeeds", () -> MASeedCraftingEventJS.class);
+        }
+    }
 
 
     @Override
@@ -106,6 +116,14 @@ public class SchemaJSPlugin implements KubeJSPlugin {
 
         if (ModList.get().isLoaded("infinitystorage")) {
             registry.of(Registries.ITEM, r -> r.add(Strainers.identifier("infinity_drive"), InfinityDriveBuilder.class, InfinityDriveBuilder::new ));
+        }
+    }
+
+    @Override
+    public void afterScriptsLoaded(ScriptManager manager) {
+        if (ModList.get().isLoaded("mysticalagriculture")) {
+            MASeedRecipeOverrides.clear();
+            System.out.println("OVERRIDES POPULATED");
         }
     }
 

@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "com.benbenlaw.schemajs.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixins": [
+    "DynamicRecipeManagerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+
+}
