@@ -123,7 +123,7 @@ public class SchemaJSPlugin implements KubeJSPlugin {
     public void afterScriptsLoaded(ScriptManager manager) {
         if (ModList.get().isLoaded("mysticalagriculture")) {
             MASeedRecipeOverrides.clear();
-            System.out.println("OVERRIDES POPULATED");
+            MA_SEED_CRAFTING.post(ScriptType.SERVER, new MASeedCraftingEventJS());
         }
     }
 
