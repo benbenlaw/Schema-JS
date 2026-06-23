@@ -24,8 +24,7 @@
 			"role": "input",
 			"type":  {
 				"type": "list",
-				"component": "sized_ingredient",
-				"spread": "sized_ingredient"
+				"component": "sized_ingredient"
 			}
         },
         {
