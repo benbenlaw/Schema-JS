@@ -30,7 +30,14 @@ public record EntityTypeComponent(ResourceKey<RecipeComponentType<?>> type, Code
 
     @Override
     public boolean hasPriority(RecipeMatchContext cx, @Nullable Object from) {
-        return from instanceof EntityType<?> || from instanceof String;
+        if (from instanceof EntityType<?>) {
+            return true;
+        }
+        if (from instanceof String s) {
+            Identifier id = Identifier.tryParse(s);
+            return id != null && BuiltInRegistries.ENTITY_TYPE.containsKey(id);
+        }
+        return false;
     }
 
     @Override

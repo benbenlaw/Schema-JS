@@ -14,6 +14,7 @@ import dev.latvian.mods.kubejs.util.OpsContainer;
 import dev.latvian.mods.rhino.NativeArray;
 import dev.latvian.mods.rhino.NativeObject;
 import dev.latvian.mods.rhino.type.TypeInfo;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import org.jspecify.annotations.NonNull;
 
@@ -48,15 +49,36 @@ public record WeightedEntityListComponent(ResourceKey<RecipeComponentType<?>> ty
 
     @Override
     public boolean hasPriority(RecipeMatchContext cx, @Nullable Object from) {
-        return from instanceof String
-                || from instanceof NativeArray
-                || from instanceof NativeObject
-                || from instanceof List<?>;
+        if (from instanceof NativeArray || from instanceof NativeObject || from instanceof List<?>) {
+            return true;
+        }
+        if (from instanceof String s) {
+            Identifier id = Identifier.tryParse(s);
+            return id != null && net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.containsKey(id);
+        }
+        return false;
     }
 
     @Override
     public boolean matches(RecipeMatchContext cx, List<Entry> value, ReplacementMatchInfo match) {
-        return true;
+        Object m = match.match();
+
+        String targetId;
+        if (m instanceof String s) {
+            targetId = s;
+        } else if (m instanceof net.minecraft.world.entity.EntityType<?> et) {
+            targetId = net.minecraft.core.registries.BuiltInRegistries.ENTITY_TYPE.getKey(et).toString();
+        } else {
+            return false;
+        }
+
+        for (Entry entry : value) {
+            if (entry.entity().equals(targetId)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     @Override
