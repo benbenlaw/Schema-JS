@@ -7,6 +7,7 @@ import com.benbenlaw.schemajs.kubejs.ae2.compoment.InscriberIngredientsComponent
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.TransformCircumstanceComponent;
 import com.benbenlaw.schemajs.kubejs.bbl.*;
 import com.benbenlaw.schemajs.kubejs.cucumber.*;
+import com.benbenlaw.schemajs.kubejs.powah.EnergizingRecipeJS;
 import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.strainers.Strainers;
 import com.benbenlaw.utility.Utility;
@@ -72,6 +73,12 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             event.register(Identifier.fromNamespaceAndPath("mysticalagriculture", "soul_extraction"), SoulExtractorJS.SCHEMA);
             event.register(Identifier.fromNamespaceAndPath("mysticalagriculture", "ore_infusion"), OreInfusionJS.SCHEMA);
         }
+
+        //Powah
+        if (ModList.get().isLoaded("powah")) {
+            event.register(Identifier.fromNamespaceAndPath("powah", "energizing"), EnergizingRecipeJS.SCHEMA);
+        }
+
     }
 
     @Override
