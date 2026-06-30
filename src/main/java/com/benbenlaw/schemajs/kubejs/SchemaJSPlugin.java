@@ -7,6 +7,7 @@ import com.benbenlaw.schemajs.kubejs.ae2.compoment.InscriberIngredientsComponent
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.TransformCircumstanceComponent;
 import com.benbenlaw.schemajs.kubejs.bbl.*;
 import com.benbenlaw.schemajs.kubejs.cucumber.*;
+import com.benbenlaw.schemajs.kubejs.enderio.*;
 import com.benbenlaw.schemajs.kubejs.powah.EnergizingRecipeJS;
 import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.strainers.Strainers;
@@ -26,6 +27,9 @@ import net.minecraft.resources.Identifier;
 import net.neoforged.bus.api.EventPriority;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
+import net.neoforged.neoforge.event.AnvilUpdateEvent;
+
+import java.awt.*;
 
 public class SchemaJSPlugin implements KubeJSPlugin {
 
@@ -79,6 +83,20 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             event.register(Identifier.fromNamespaceAndPath("powah", "energizing"), EnergizingRecipeJS.SCHEMA);
         }
 
+        //EnderIO
+        if (ModList.get().isLoaded("enderio")) {
+            event.register(Identifier.fromNamespaceAndPath("enderio", "enchanting"), EnchanterRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "alloy_smelting"), AlloySmeltingRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "sag_milling"), SagMillingRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "slicing"), SlicingRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "soul_binding"), SoulBindingRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "tank"), TankRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "painting"), PaintingRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "vat_fermenting"), FermentingRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "weather_change"), WeatherChangeRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("enderio", "fire_crafting"), FireCraftingRecipeJS.SCHEMA);
+        }
+
     }
 
     @Override
@@ -106,11 +124,19 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             registry.unit(InscriberIngredientsComponent.INSTANCE);
         }
 
+        if (ModList.get().isLoaded("enderio")) {
+            registry.unit(OutputItemComponent.OUTPUT_ITEM);
+        }
+
         registry.unit(CompoundTagComponent.COMPOUND_TAG);
         registry.unit(EntityTypeComponent.ENTITY_TYPE);
         registry.unit(EnchantmentComponent.ENCHANTMENT);
         registry.unit(WeightedEntityListComponent.ENTITY_LIST);
         registry.unit(BiomeFilterComponent.BIOME_FILTER);
+        registry.unit(EnchantmentHolderComponent.ENCHANTMENT_HOLDER);
+        registry.unit(IdentifierComponent.IDENTIFIER);
+        registry.unit(DimensionComponent.DIMENSION);
+        registry.unit(BlockTagComponent.BLOCK_TAG);
     }
 
 

@@ -87,7 +87,7 @@ dependencies {
     //BBL Core
     implementation("curse.maven:bbl-core-1135181:8220864")
     //BBL Strainers
-    implementation("curse.maven:bbl-strainers-882351:8251445")
+    implementation("curse.maven:bbl-strainers-882351:8294402")
     //BBL Utility
     implementation("curse.maven:bbl-utility-649644:8221171")
     //Cucumber Core
@@ -108,6 +108,8 @@ dependencies {
     implementation("curse.maven:powah-rearchitected-633483:8025339")
     //Cloth Config
     implementation("curse.maven:cloth-config-348521:7817583")
+    //Ender IO
+    implementation("curse.maven:ender-io-64578:8192909")
 
 }
 
