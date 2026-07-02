@@ -10,6 +10,7 @@ import com.benbenlaw.schemajs.kubejs.cucumber.*;
 import com.benbenlaw.schemajs.kubejs.enderio.*;
 import com.benbenlaw.schemajs.kubejs.powah.EnergizingRecipeJS;
 import com.benbenlaw.schemajs.kubejs.util.*;
+import com.benbenlaw.shops.Shops;
 import com.benbenlaw.strainers.Strainers;
 import com.benbenlaw.utility.Utility;
 import com.blakebr0.cucumber.event.RecipeManagerLoadingEvent;
@@ -61,6 +62,11 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             event.register(Utility.identifier("fluid_generator"), FluidGeneratorRecipeJS.SCHEMA);
             event.register(Utility.identifier("resource_generator"), ResourceGeneratorRecipeJS.SCHEMA);
             event.register(Utility.identifier("summoning"), SummoningRecipeJS.SCHEMA);
+        }
+
+        //BBL Shops
+        if (ModList.get().isLoaded("shops")) {
+            event.register(Shops.identifier("shop"), ShopRecipeJS.SCHEMA);
         }
 
         //AE2

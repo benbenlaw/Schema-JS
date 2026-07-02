@@ -110,6 +110,8 @@ dependencies {
     implementation("curse.maven:cloth-config-348521:7817583")
     //Ender IO
     implementation("curse.maven:ender-io-64578:8192909")
+    //BBL Shops
+    implementation("curse.maven:bbl-shops-1352211:8359750")
 
 }
 
