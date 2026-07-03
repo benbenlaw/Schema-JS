@@ -156,6 +156,10 @@ public class SchemaJSPlugin implements KubeJSPlugin {
         if (ModList.get().isLoaded("infinitystorage")) {
             registry.of(Registries.ITEM, r -> r.add(Strainers.identifier("infinity_drive"), InfinityDriveBuilder.class, InfinityDriveBuilder::new ));
         }
+
+        if (ModList.get().isLoaded("shops")) {
+            registry.of(Registries.ITEM, r -> r.add(Shops.identifier("coin"), CoinBuilder.class, CoinBuilder::new ));
+        }
     }
 
     @Override
