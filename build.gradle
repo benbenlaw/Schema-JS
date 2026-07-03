@@ -111,7 +111,7 @@ dependencies {
     //Ender IO
     implementation("curse.maven:ender-io-64578:8192909")
     //BBL Shops
-    implementation("curse.maven:bbl-shops-1352211:8359750")
+    implementation("curse.maven:bbl-shops-1352211:8363782")
 
 }
 
