@@ -15,7 +15,7 @@ public interface ShopRecipeJS {
     RecipeKey<Integer> SELL_PRICE = NumberComponent.INT.otherKey("sell_price");
 
     RecipeKey<String> TIER = StringComponent.OPTIONAL_STRING.otherKey("tier").functionNames("tier").defaultOptional();
-    RecipeKey<String> ORDER = StringComponent.OPTIONAL_STRING.otherKey("order").functionNames("order").defaultOptional();
+    RecipeKey<Integer> ORDER = NumberComponent.INT.otherKey("order").functionNames("order").defaultOptional();
 
     RecipeSchema SCHEMA = new RecipeSchema(ITEM, BUY_PRICE, SELL_PRICE, TIER, ORDER);
 
