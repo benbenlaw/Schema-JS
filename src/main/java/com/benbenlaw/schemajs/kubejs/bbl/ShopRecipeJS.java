@@ -17,7 +17,9 @@ public interface ShopRecipeJS {
     RecipeKey<String> TIER = StringComponent.OPTIONAL_STRING.otherKey("tier").functionNames("tier").defaultOptional();
     RecipeKey<Integer> ORDER = NumberComponent.INT.otherKey("order").functionNames("order").defaultOptional();
     RecipeKey<String> TRADER = StringComponent.OPTIONAL_STRING.otherKey("trader").functionNames("trader").defaultOptional();
+    RecipeKey<String> UNLOCKS_TIER_WHEN_BOUGHT = StringComponent.OPTIONAL_STRING.otherKey("unlocks_tier_when_bought").functionNames("tierWhenBought").defaultOptional();
+    RecipeKey<String> UNLOCKS_TIER_WHEN_SELL = StringComponent.OPTIONAL_STRING.otherKey("unlocks_tier_when_sell").functionNames("tierWhenSell").defaultOptional();
 
-    RecipeSchema SCHEMA = new RecipeSchema(ITEM, BUY_PRICE, SELL_PRICE, TIER, ORDER, TRADER);
+    RecipeSchema SCHEMA = new RecipeSchema(ITEM, BUY_PRICE, SELL_PRICE, TIER, ORDER, TRADER, UNLOCKS_TIER_WHEN_BOUGHT, UNLOCKS_TIER_WHEN_SELL);
 
 }
