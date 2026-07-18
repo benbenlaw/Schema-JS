@@ -14,7 +14,7 @@ public interface StrainerRecipeJS {
     RecipeKey<ChanceResult> RESULT = ChanceResultComponent.CHANCE_RESULT.outputKey("result");
     RecipeKey<SizedIngredient> INPUT = SizedIngredientComponent.SIZED_INGREDIENT.inputKey("input");
     RecipeKey<Integer> MIN_MESH_TIER = NumberComponent.INT.otherKey("min_mesh_tier");
-    RecipeKey<Double> ADDITIONAL_CHANCE_PER_TIER = NumberComponent.DOUBLE.otherKey("additional_chance_per_tier");
+    RecipeKey<Float> ADDITIONAL_CHANCE_PER_TIER = NumberComponent.FLOAT.otherKey("additional_chance_per_tier");
 
     RecipeKey<SizedFluidIngredient> FLUID = SizedFluidIngredientComponent.SIZED_FLUID_INGREDIENT.inputKey("fluid").functionNames("fluid").defaultOptional();
 
