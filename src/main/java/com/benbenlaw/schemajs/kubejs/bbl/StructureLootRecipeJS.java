@@ -19,7 +19,7 @@ public interface StructureLootRecipeJS {
     RecipeKey<List<Identifier>> LOOT_TABLES = IdentifierComponent.IDENTIFIER.asList().otherKey("loot_tables");
     RecipeKey<Integer> ROLLS = NumberComponent.INT.otherKey("rolls");
     RecipeKey<Integer> DURATION = NumberComponent.INT.otherKey("duration");
-    RecipeKey<ItemStack> RF_PER_TICK = ItemStackComponent.ITEM_STACK.otherKey("rf_per_tick");
+    RecipeKey<Integer> RF_PER_TICK = NumberComponent.INT.otherKey("rf_per_tick");
 
     RecipeSchema SCHEMA = new RecipeSchema(STRUCTURE, LOOT_TABLES, ROLLS, DURATION, RF_PER_TICK);
 
