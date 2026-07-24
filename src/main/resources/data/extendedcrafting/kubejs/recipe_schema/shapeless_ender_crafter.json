@@ -1,0 +1,24 @@
+{
+  "keys": [
+    {
+      "name": "result",
+      "role": "output",
+      "type": "item_stack"
+    },
+    {
+      "name": "ingredients",
+      "role": "input",
+      "type": { "type": "list", "component": "ingredient" }
+    },
+    {
+      "name": "crafting_time",
+      "type": "int",
+      "function_names": ["craftingTime"],
+      "optional": 300
+    }
+  ],
+  "unique": ["result"],
+  "constructors": [
+    { "keys": ["result", "ingredients"] }
+  ]
+}

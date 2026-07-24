@@ -1,0 +1,28 @@
+{
+  "keys": [
+    {
+      "name": "result",
+      "role": "output",
+      "type": "item_stack"
+    },
+    {
+      "name": "pattern",
+      "type": { "type": "list", "component": "string" }
+    },
+    {
+      "name": "key",
+      "role": "input",
+      "type": { "type": "pattern", "component": "optional_ingredient" }
+    },
+    {
+      "name": "crafting_time",
+      "type": "int",
+      "function_names": ["craftingTime"],
+      "optional": 300
+    }
+  ],
+  "unique": ["result"],
+  "constructors": [
+    { "keys": ["result", "pattern", "key"] }
+  ]
+}

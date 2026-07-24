@@ -85,15 +85,17 @@ dependencies {
     //Rhino
     implementation("curse.maven:rhino-416294:8218748")
     //BBL Core
-    implementation("curse.maven:bbl-core-1135181:8220864")
+    implementation("curse.maven:bbl-core-1135181:8382070")
     //BBL Strainers
     implementation("curse.maven:bbl-strainers-882351:8294402")
     //BBL Utility
     implementation("curse.maven:bbl-utility-649644:8221171")
     //Cucumber Core
     implementation("curse.maven:cucumber-272335:8178456")
-    //Cucumber Core
+    //Mystical
     implementation("curse.maven:mystical-agriculture-246640:8130326")
+    //Extended Crafting
+    implementation("curse.maven:extended-crafting-268387:8078667")
     //Horse Powered
     implementation("curse.maven:horse-powered-1408330:8158328")
     //AE2
@@ -112,6 +114,8 @@ dependencies {
     implementation("curse.maven:ender-io-64578:8192909")
     //BBL Shops
     implementation("curse.maven:bbl-shops-1352211:8363782")
+    //BBL Structure Loot Generator
+    implementation("curse.maven:bbl-structure-loot-generator-1617925:8472862")
 
 }
 

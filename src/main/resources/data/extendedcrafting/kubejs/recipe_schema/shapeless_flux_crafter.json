@@ -1,0 +1,28 @@
+{
+  "keys": [
+    {
+      "name": "result",
+      "role": "output",
+      "type": "item_stack"
+    },
+    {
+      "name": "ingredients",
+      "role": "input",
+      "type": { "type": "list", "component": "ingredient" }
+    },
+    {
+      "name": "power_required",
+      "type": "int"
+    },
+    {
+      "name": "power_rate",
+      "type": "int",
+      "function_names": ["powerRate"],
+      "optional": 1000
+    }
+  ],
+  "unique": ["result"],
+  "constructors": [
+    { "keys": ["result", "ingredients", "power_required"] }
+  ]
+}

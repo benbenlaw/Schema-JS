@@ -1,6 +1,5 @@
-package com.benbenlaw.schemajs.kubejs.cucumber;
+package com.benbenlaw.schemajs.kubejs.cucumber.mystical;
 
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 

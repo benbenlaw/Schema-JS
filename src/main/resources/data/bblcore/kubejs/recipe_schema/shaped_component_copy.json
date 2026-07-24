@@ -1,0 +1,31 @@
+{
+  "keys": [
+    {
+      "name": "result",
+      "role": "output",
+      "type": "item_stack"
+    },
+    {
+      "name": "pattern",
+      "type": { "type": "list", "component": "string" }
+    },
+    {
+      "name": "key",
+      "role": "input",
+      "type": { "type": "pattern", "component": "optional_ingredient" }
+    },
+    {
+      "name": "source",
+      "role": "input",
+      "type": "ingredient"
+    },
+    {
+      "name": "copy_components",
+      "type": "data_component_type_list"
+    }
+  ],
+  "unique": ["result"],
+  "constructors": [
+    { "keys": ["result", "pattern", "key", "source", "copy_components"] }
+  ]
+}

@@ -1,4 +1,4 @@
-package com.benbenlaw.schemajs.kubejs.cucumber;
+package com.benbenlaw.schemajs.kubejs.cucumber.mystical;
 
 import dev.latvian.mods.kubejs.event.KubeEvent;
 import net.minecraft.resources.Identifier;

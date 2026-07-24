@@ -1,4 +1,4 @@
-package com.benbenlaw.schemajs.kubejs.cucumber;
+package com.benbenlaw.schemajs.kubejs.cucumber.mystical;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

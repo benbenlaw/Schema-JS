@@ -1,7 +1,7 @@
 package com.benbenlaw.schemajs.mixin;
 
-import com.benbenlaw.schemajs.kubejs.cucumber.MASeedOverride;
-import com.benbenlaw.schemajs.kubejs.cucumber.MASeedRecipeOverrides;
+import com.benbenlaw.schemajs.kubejs.cucumber.mystical.MASeedOverride;
+import com.benbenlaw.schemajs.kubejs.cucumber.mystical.MASeedRecipeOverrides;
 import com.blakebr0.mysticalagriculture.MysticalAgriculture;
 import com.blakebr0.mysticalagriculture.api.crop.Crop;
 import com.blakebr0.mysticalagriculture.config.ModConfigs;

@@ -6,14 +6,16 @@ import com.benbenlaw.schemajs.kubejs.ae2.compoment.EntropyOutputComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.InscriberIngredientsComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.TransformCircumstanceComponent;
 import com.benbenlaw.schemajs.kubejs.bbl.*;
-import com.benbenlaw.schemajs.kubejs.cucumber.*;
+import com.benbenlaw.schemajs.kubejs.cucumber.OutputResolverComponent;
+import com.benbenlaw.schemajs.kubejs.cucumber.extended.CombinationRecipeJS;
+import com.benbenlaw.schemajs.kubejs.cucumber.extended.CompressorRecipeJS;
+import com.benbenlaw.schemajs.kubejs.cucumber.mystical.*;
 import com.benbenlaw.schemajs.kubejs.enderio.*;
 import com.benbenlaw.schemajs.kubejs.powah.EnergizingRecipeJS;
 import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.shops.Shops;
 import com.benbenlaw.strainers.Strainers;
 import com.benbenlaw.utility.Utility;
-import com.blakebr0.cucumber.event.RecipeManagerLoadingEvent;
 import dev.latvian.mods.kubejs.event.EventGroup;
 import dev.latvian.mods.kubejs.event.EventGroupRegistry;
 import dev.latvian.mods.kubejs.event.EventHandler;
@@ -25,12 +27,7 @@ import dev.latvian.mods.kubejs.script.ScriptManager;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
-import net.neoforged.bus.api.EventPriority;
-import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModList;
-import net.neoforged.neoforge.event.AnvilUpdateEvent;
-
-import java.awt.*;
 
 public class SchemaJSPlugin implements KubeJSPlugin {
 
@@ -103,6 +100,16 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             event.register(Identifier.fromNamespaceAndPath("enderio", "fire_crafting"), FireCraftingRecipeJS.SCHEMA);
         }
 
+        //Extended Crafting
+        if (ModList.get().isLoaded("extendedcrafting")) {
+            event.register(Identifier.fromNamespaceAndPath("extendedcrafting", "compressor"), CompressorRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("extendedcrafting", "combination"), CombinationRecipeJS.SCHEMA);
+        }
+
+        //BBL Structure Loot Generator
+        if (ModList.get().isLoaded("structureloot")) {
+            event.register(Identifier.fromNamespaceAndPath("structureloot", "structure_loot"), StructureLootRecipeJS.SCHEMA);
+        }
     }
 
     @Override
@@ -143,6 +150,7 @@ public class SchemaJSPlugin implements KubeJSPlugin {
         registry.unit(IdentifierComponent.IDENTIFIER);
         registry.unit(DimensionComponent.DIMENSION);
         registry.unit(BlockTagComponent.BLOCK_TAG);
+        registry.unit(DataComponentTypeListComponent.DATA_COMPONENT_TYPE_LIST);
     }
 
 

@@ -1,5 +1,6 @@
-package com.benbenlaw.schemajs.kubejs.cucumber;
+package com.benbenlaw.schemajs.kubejs.cucumber.mystical;
 
+import com.benbenlaw.schemajs.kubejs.cucumber.OutputResolverComponent;
 import com.blakebr0.cucumber.crafting.OutputResolver;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
 import dev.latvian.mods.kubejs.recipe.component.SizedIngredientComponent;
