@@ -15,7 +15,7 @@ import java.util.List;
 
 public interface StructureLootRecipeJS {
 
-    RecipeKey<Identifier> STRUCTURE = IdentifierComponent.IDENTIFIER.otherKey("STRUCTURE");
+    RecipeKey<Identifier> STRUCTURE = IdentifierComponent.IDENTIFIER.otherKey("structure");
     RecipeKey<List<Identifier>> LOOT_TABLES = IdentifierComponent.IDENTIFIER.asList().otherKey("loot_tables");
     RecipeKey<Integer> ROLLS = NumberComponent.INT.otherKey("rolls");
     RecipeKey<Integer> DURATION = NumberComponent.INT.otherKey("duration");
