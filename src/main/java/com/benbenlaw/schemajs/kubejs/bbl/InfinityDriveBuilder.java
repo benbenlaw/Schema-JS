@@ -19,8 +19,8 @@ import org.jspecify.annotations.NonNull;
 
 public class InfinityDriveBuilder extends ItemBuilder {
 
-    public FluidStackTemplate fluidStack;
-    public ItemStackTemplate itemStack;
+    private Identifier fluidId;
+    private Identifier itemId;
 
     public InfinityDriveBuilder(Identifier id) {
         super(id);
@@ -28,34 +28,34 @@ public class InfinityDriveBuilder extends ItemBuilder {
 
     @Info("String of the fluid eg minecraft:water")
     public InfinityDriveBuilder fluidContent(String fluid) {
-        Fluid resolved = BuiltInRegistries.FLUID.getValue(Identifier.parse(fluid));
-        if (resolved == Fluids.EMPTY) {
-            throw new IllegalArgumentException("Unknown fluid id '" + fluid + "' for drive " + id);
-        }
-        this.fluidStack = new FluidStackTemplate(resolved, 1000);
+        this.fluidId = Identifier.parse(fluid);
         return this;
     }
 
     @Info("String of the item eg minecraft:diamond")
     public InfinityDriveBuilder itemContent(String item) {
-        this.itemStack = new ItemStackTemplate(BuiltInRegistries.ITEM.getValue(Identifier.parse(item)));
+        this.itemId = Identifier.parse(item);
         return this;
     }
 
     @Override
     public @NonNull Item createObject() {
-
-        InfinityDrive drive;
-
-        if (fluidStack != null) {
-            drive = new InfinityDrive(createItemProperties(), InfinityContent.of(fluidStack));
-        }
-        else if (itemStack != null) {
-            drive = new InfinityDrive(createItemProperties(), InfinityContent.of(itemStack));
-        } else {
-            throw new IllegalStateException("InfinityDriveBuilder for " + id + " has no fluid or item set!");
+        if (fluidId != null) {
+            Fluid resolved = BuiltInRegistries.FLUID.getValue(fluidId);
+            if (resolved == Fluids.EMPTY) {
+                throw new IllegalStateException("Unknown fluid id '" + fluidId + "' for drive " + id);
+            }
+            return new InfinityDrive(createItemProperties(), InfinityContent.of(new FluidStackTemplate(resolved, 1000)));
         }
 
-        return drive;
+        if (itemId != null) {
+            Item resolved = BuiltInRegistries.ITEM.getValue(itemId);
+            if (resolved == Items.AIR) {
+                throw new IllegalStateException("Unknown item id '" + itemId + "' for drive " + id);
+            }
+            return new InfinityDrive(createItemProperties(), InfinityContent.of(new ItemStackTemplate(resolved)));
+        }
+
+        throw new IllegalStateException("InfinityDriveBuilder for " + id + " has no fluid or item set!");
     }
 }
