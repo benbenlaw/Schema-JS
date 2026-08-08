@@ -1,11 +1,8 @@
-package com.benbenlaw.schemajs.kubejs.bbl;
+package com.benbenlaw.schemajs.kubejs.bbl.builder;
 
 import com.benbenlaw.infinitystorage.item.InfinityContent;
 import com.benbenlaw.infinitystorage.item.InfinityDrive;
-import com.benbenlaw.strainers.item.FluidDropItem;
-import dev.latvian.mods.kubejs.fluid.FluidWrapper;
 import dev.latvian.mods.kubejs.item.ItemBuilder;
-import dev.latvian.mods.kubejs.plugin.builtin.wrapper.ItemWrapper;
 import dev.latvian.mods.kubejs.typings.Info;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;

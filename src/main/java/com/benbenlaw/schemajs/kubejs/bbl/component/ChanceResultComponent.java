@@ -1,4 +1,4 @@
-package com.benbenlaw.schemajs.kubejs.bbl;
+package com.benbenlaw.schemajs.kubejs.bbl.component;
 
 import com.benbenlaw.core.recipe.ChanceResult;
 import com.mojang.serialization.Codec;
@@ -14,9 +14,7 @@ import dev.latvian.mods.rhino.NativeArray;
 import dev.latvian.mods.rhino.NativeObject;
 import dev.latvian.mods.rhino.type.TypeInfo;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.ItemStackTemplate;
 

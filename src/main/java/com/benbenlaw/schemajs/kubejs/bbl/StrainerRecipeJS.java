@@ -1,6 +1,7 @@
 package com.benbenlaw.schemajs.kubejs.bbl;
 
 import com.benbenlaw.core.recipe.ChanceResult;
+import com.benbenlaw.schemajs.kubejs.bbl.component.ChanceResultComponent;
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
 import dev.latvian.mods.kubejs.recipe.component.NumberComponent;
 import dev.latvian.mods.kubejs.recipe.component.SizedFluidIngredientComponent;

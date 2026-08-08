@@ -116,6 +116,11 @@ dependencies {
     implementation("curse.maven:bbl-shops-1352211:8363782")
     //BBL Structure Loot Generator
     implementation("curse.maven:bbl-structure-loot-generator-1617925:8472862")
+    //In World Recipes
+    implementation("curse.maven:in-world-recipes-1123257:8553390")
+    //BBL Trading Cards
+    implementation("curse.maven:bbl-trading-cards-1644253:8601333")
+
 
 }
 

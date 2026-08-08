@@ -1,4 +1,4 @@
-package com.benbenlaw.schemajs.kubejs.bbl;
+package com.benbenlaw.schemajs.kubejs.bbl.component;
 
 import com.benbenlaw.utility.util.BlockTarget;
 import com.benbenlaw.utility.util.BlockTargetCodec;
@@ -14,7 +14,6 @@ import dev.latvian.mods.kubejs.recipe.filter.RecipeMatchContext;
 import dev.latvian.mods.kubejs.recipe.match.ReplacementMatchInfo;
 import dev.latvian.mods.kubejs.util.OpsContainer;
 import dev.latvian.mods.rhino.type.TypeInfo;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
