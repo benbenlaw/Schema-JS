@@ -1,8 +1,8 @@
 package com.benbenlaw.schemajs.kubejs;
 
 import com.benbenlaw.bbltcg.BBLTCG;
-import com.benbenlaw.bbltcg.recipe.PackOpeningRecipe;
 import com.benbenlaw.cloche.Cloche;
+import com.benbenlaw.infinitystorage.InfinityStorage;
 import com.benbenlaw.schemajs.kubejs.ae2.*;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.EntropyOutputComponent;
 import com.benbenlaw.schemajs.kubejs.ae2.compoment.InscriberIngredientsComponent;
@@ -13,6 +13,7 @@ import com.benbenlaw.schemajs.kubejs.bbl.builder.DropItemBuilder;
 import com.benbenlaw.schemajs.kubejs.bbl.builder.InfinityDriveBuilder;
 import com.benbenlaw.schemajs.kubejs.bbl.component.BlockTargetComponent;
 import com.benbenlaw.schemajs.kubejs.bbl.component.ChanceResultComponent;
+import com.benbenlaw.schemajs.kubejs.bbl.component.LootRollComponent;
 import com.benbenlaw.schemajs.kubejs.bbl.component.WeightedItemStackComponent;
 import com.benbenlaw.schemajs.kubejs.cucumber.OutputResolverComponent;
 import com.benbenlaw.schemajs.kubejs.cucumber.extended.CombinationRecipeJS;
@@ -116,7 +117,7 @@ public class SchemaJSPlugin implements KubeJSPlugin {
 
         //BBL Structure Loot Generator
         if (ModList.get().isLoaded("structureloot")) {
-            event.register(Identifier.fromNamespaceAndPath("structureloot", "structure_loot"), StructureLootRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("structureloot", "structure_loot"), LootGeneratorRecipeJS.SCHEMA);
         }
 
         //BBL Trading Cards
@@ -158,6 +159,10 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             registry.unit(WeightedItemStackComponent.WEIGHTED_ITEM_STACK_COMPONENT);
         }
 
+        if (ModList.get().isLoaded("structureloot")) {
+            registry.unit(LootRollComponent.LOOT_ROLL);
+        }
+
         registry.unit(CompoundTagComponent.COMPOUND_TAG);
         registry.unit(EntityTypeComponent.ENTITY_TYPE);
         registry.unit(EnchantmentComponent.ENCHANTMENT);
@@ -179,7 +184,7 @@ public class SchemaJSPlugin implements KubeJSPlugin {
         }
 
         if (ModList.get().isLoaded("infinitystorage")) {
-            registry.of(Registries.ITEM, r -> r.add(Strainers.identifier("infinity_drive"), InfinityDriveBuilder.class, InfinityDriveBuilder::new));
+            registry.of(Registries.ITEM, r -> r.add(InfinityStorage.identifier("infinity_drive"), InfinityDriveBuilder.class, InfinityDriveBuilder::new));
         }
 
         if (ModList.get().isLoaded("shops")) {
