@@ -1,0 +1,39 @@
+{
+  "keys": [
+    {
+      "name": "container",
+      "role": "input",
+      "type": "ingredient"
+    },
+    {
+      "name": "fluid",
+      "role": "input",
+      "type": {
+        "type": "custom_object",
+        "keys": [
+          {
+            "name": "id",
+            "component": "id"
+          },
+          {
+            "name": "amount",
+            "component": "int"
+          }
+        ]
+      }
+    },
+    {
+      "name": "result",
+      "role": "output",
+      "type": "item_stack"
+    },
+    {
+      "name": "priority",
+      "role": "other",
+      "type": "int",
+      "function_names": ["priority"],
+      "optional": 0,
+      "always_write": true
+    }
+  ]
+}

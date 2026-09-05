@@ -30,6 +30,30 @@
 			"type": "int",
             "function_names": ["secondaryChance"],
 	        "optional": 0
+        },
+        {
+          "name": "priority",
+          "role": "other",
+          "type": "int",
+          "function_names": ["priority"],
+          "optional": 0,
+          "always_write": true
+        },
+        {
+          "name": "hungerCost",
+          "role": "other",
+          "type": "float",
+          "function_names": ["hungerCost"],
+          "optional": 0.0,
+          "always_write": true
+        },
+        {
+          "name": "tier",
+          "role": "other",
+          "type": "horsepowered:recipe_tier",
+          "function_names": ["mode"],
+          "optional": "any",
+          "always_write": false
         }
     ]
 }

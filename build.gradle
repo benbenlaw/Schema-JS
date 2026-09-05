@@ -97,7 +97,7 @@ dependencies {
     //Extended Crafting
     implementation("curse.maven:extended-crafting-268387:8078667")
     //Horse Powered
-    implementation("curse.maven:horse-powered-1408330:8158328")
+    implementation("curse.maven:horse-powered-1408330:8744211")
     //AE2
     implementation("curse.maven:applied-energistics-2-223794:8129795")
     //Guide ME

@@ -57,6 +57,22 @@
           "function_names": ["baitConsumeChance"],
           "optional": 10.0,
           "always_write": true
+        },
+        {
+          "name": "title",
+          "role": "other",
+          "type": "string",
+          "function_names": ["title"],
+          "optional": "changeMe",
+          "always_write": false
+        },
+        {
+          "name": "icon",
+          "role": "other",
+          "type": "identifier",
+          "function_names": ["icon"],
+          "optional": "minecraft:diamond",
+          "always_write": false
         }
     ]
 }
