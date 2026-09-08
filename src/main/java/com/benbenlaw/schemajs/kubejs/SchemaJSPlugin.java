@@ -20,6 +20,8 @@ import com.benbenlaw.schemajs.kubejs.cucumber.extended.CombinationRecipeJS;
 import com.benbenlaw.schemajs.kubejs.cucumber.extended.CompressorRecipeJS;
 import com.benbenlaw.schemajs.kubejs.cucumber.mystical.*;
 import com.benbenlaw.schemajs.kubejs.enderio.*;
+import com.benbenlaw.schemajs.kubejs.horsepowered.ChoppingRecipeJS;
+import com.benbenlaw.schemajs.kubejs.horsepowered.GrindingRecipeJS;
 import com.benbenlaw.schemajs.kubejs.powah.EnergizingRecipeJS;
 import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.shops.Shops;
@@ -123,6 +125,12 @@ public class SchemaJSPlugin implements KubeJSPlugin {
         //BBL Trading Cards
         if (ModList.get().isLoaded("bbltcg")) {
             event.register(BBLTCG.identifier("pack_opening"), PackRecipeJS.SCHEMA);
+        }
+
+        //HorsePowered (Only Chopping and Grinding are done this way due to custom enum class)
+        if (ModList.get().isLoaded("horsepowered")) {
+            event.register(Identifier.fromNamespaceAndPath("horsepowered", "chopping"), ChoppingRecipeJS.SCHEMA);
+            event.register(Identifier.fromNamespaceAndPath("horsepowered", "grinding"), GrindingRecipeJS.SCHEMA);
         }
     }
 

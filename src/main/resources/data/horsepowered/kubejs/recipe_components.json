@@ -1,6 +1,0 @@
-{
-  "horsepowered:recipe_tier": {
-    "type": "enum",
-    "enum": "com.breakinblocks.horsepowered.recipes.RecipeTier"
-  }
-}
