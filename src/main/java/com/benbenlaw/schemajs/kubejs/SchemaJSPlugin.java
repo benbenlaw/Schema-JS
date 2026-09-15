@@ -34,6 +34,7 @@ import dev.latvian.mods.kubejs.plugin.KubeJSPlugin;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponentTypeRegistry;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchemaRegistry;
 import dev.latvian.mods.kubejs.registry.BuilderTypeRegistry;
+import dev.latvian.mods.kubejs.script.BindingRegistry;
 import dev.latvian.mods.kubejs.script.ScriptManager;
 import dev.latvian.mods.kubejs.script.ScriptType;
 import net.minecraft.core.registries.Registries;
@@ -50,6 +51,7 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             MA_SEED_CRAFTING = GROUP.server("mysticalAgricultureSeeds", () -> MASeedCraftingEventJS.class);
         }
     }
+
 
 
     @Override
@@ -210,7 +212,15 @@ public class SchemaJSPlugin implements KubeJSPlugin {
     }
 
     @Override
+    public void registerBindings(BindingRegistry bindings) {
+        if (ModList.get().isLoaded("castingtools")) {
+            bindings.add("CastingTools", CastingToolsBridge.class);
+        }
+    }
+
+    @Override
     public void registerEvents(EventGroupRegistry registry) {
         registry.register(GROUP);
     }
 }
+

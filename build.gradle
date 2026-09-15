@@ -120,7 +120,10 @@ dependencies {
     implementation("curse.maven:in-world-recipes-1123257:8553390")
     //BBL Trading Cards
     implementation("curse.maven:bbl-trading-cards-1644253:8601333")
-
+    //BBL Casting
+    implementation("curse.maven:bbl-casting-1052163:8885331");
+    //BBL Casting Tools
+    implementation("curse.maven:bbl-casting-tools-1501619:8885234");
 
 }
 
