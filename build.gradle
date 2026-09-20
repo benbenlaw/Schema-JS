@@ -94,6 +94,8 @@ dependencies {
     implementation("curse.maven:cucumber-272335:8178456")
     //Mystical
     implementation("curse.maven:mystical-agriculture-246640:8130326")
+    //Mystical Agradditions
+    implementation("curse.maven:mystical-agradditions-256247:8796956")
     //Extended Crafting
     implementation("curse.maven:extended-crafting-268387:8078667")
     //Horse Powered
