@@ -29,5 +29,9 @@ public interface GrindingRecipeJS {
             .functionNames("mode")
             .optional(RecipeTier.ANY);
 
-    RecipeSchema SCHEMA = new RecipeSchema(RESULT, INGREDIENT, TIME, PRIORITY, HUNGER_COST, TIER);
+    RecipeKey<ItemStack> SECONDARY = ItemStackComponent.OPTIONAL_ITEM_STACK.otherKey("secondary").functionNames("secondary").defaultOptional();
+    RecipeKey<Integer> SECONDARY_CHANCE = NumberComponent.INT.otherKey("secondaryChance").functionNames("secondaryChance").defaultOptional();
+
+
+    RecipeSchema SCHEMA = new RecipeSchema(RESULT, INGREDIENT, TIME, PRIORITY, HUNGER_COST, TIER, SECONDARY, SECONDARY_CHANCE);
 }

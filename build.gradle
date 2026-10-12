@@ -81,11 +81,11 @@ dependencies {
     //Cupboard
     runtimeOnly("curse.maven:cupboard-326652:7904113")
     //KubeJS
-    implementation("curse.maven:kubejs-238086:8235730")
+    implementation("curse.maven:kubejs-238086:8843756")
     //Rhino
-    implementation("curse.maven:rhino-416294:8218748")
+    implementation("curse.maven:rhino-416294:8463898")
     //BBL Core
-    implementation("curse.maven:bbl-core-1135181:8382070")
+    implementation("curse.maven:bbl-core-1135181:8893880")
     //BBL Strainers
     implementation("curse.maven:bbl-strainers-882351:8294402")
     //BBL Utility
@@ -93,7 +93,7 @@ dependencies {
     //Cucumber Core
     implementation("curse.maven:cucumber-272335:8178456")
     //Mystical
-    implementation("curse.maven:mystical-agriculture-246640:8130326")
+    implementation("curse.maven:mystical-agriculture-246640:8797046")
     //Mystical Agradditions
     implementation("curse.maven:mystical-agradditions-256247:8796956")
     //Extended Crafting
@@ -126,7 +126,8 @@ dependencies {
     implementation("curse.maven:bbl-casting-1052163:8885331");
     //BBL Casting Tools
     implementation("curse.maven:bbl-casting-tools-1501619:8885234");
-
+    //Better Tooltips
+    implementation("curse.maven:better-advanced-tooltips-1637623:8568911")
 }
 
 tasks.withType(ProcessResources).configureEach {
