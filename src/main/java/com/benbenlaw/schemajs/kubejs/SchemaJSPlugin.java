@@ -22,7 +22,9 @@ import com.benbenlaw.schemajs.kubejs.cucumber.mystical.*;
 import com.benbenlaw.schemajs.kubejs.enderio.*;
 import com.benbenlaw.schemajs.kubejs.horsepowered.ChoppingRecipeJS;
 import com.benbenlaw.schemajs.kubejs.horsepowered.GrindingRecipeJS;
+import com.benbenlaw.schemajs.kubejs.ltxi.*;
 import com.benbenlaw.schemajs.kubejs.powah.EnergizingRecipeJS;
+import com.benbenlaw.schemajs.kubejs.rifts.*;
 import com.benbenlaw.schemajs.kubejs.util.*;
 import com.benbenlaw.shops.Shops;
 import com.benbenlaw.strainers.Strainers;
@@ -51,8 +53,6 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             MA_SEED_CRAFTING = GROUP.server("mysticalAgricultureSeeds", () -> MASeedCraftingEventJS.class);
         }
     }
-
-
 
     @Override
     public void registerRecipeSchemas(RecipeSchemaRegistry event) {
@@ -129,6 +129,31 @@ public class SchemaJSPlugin implements KubeJSPlugin {
             event.register(BBLTCG.identifier("pack_opening"), PackRecipeJS.SCHEMA);
         }
 
+        //LTX Industries
+        if (ModList.get().isLoaded("ltxi")) {
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "air_scrubbing"), LTXISchemas.AIR_SCRUBBING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "arc_smelting"), LTXISchemas.ARC_SMELTING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "assembling"), LTXISchemas.ASSEMBLING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "chemical_reacting"), LTXISchemas.CHEMICAL_REACTING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "electro_centrifuging"), LTXISchemas.ELECTRO_CENTRIFUGING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "energizing"), LTXISchemas.ENERGIZING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "fabricating"), LTXISchemas.FABRICATING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "garden_simulating"), LTXISchemas.GARDEN_SIMULATING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "geo_synthesis"), LTXISchemas.GEO_SYNTHESIS);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "grinding"), LTXISchemas.GRINDING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "mixing"), LTXISchemas.MIXING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "pressing"), LTXISchemas.PRESSING);
+            event.register(Identifier.fromNamespaceAndPath("ltxi", "sieving"), LTXISchemas.SIEVING);
+        }
+
+        //BBL Rifts
+        if (ModList.get().isLoaded("rifts")) {
+            event.register(Identifier.fromNamespaceAndPath("rifts", "converter"), RiftsSchemas.CONVERTER);
+            event.register(Identifier.fromNamespaceAndPath("rifts", "crusher"), RiftsSchemas.CRUSHER);
+            event.register(Identifier.fromNamespaceAndPath("rifts", "infuser"), RiftsSchemas.INFUSER);
+            event.register(Identifier.fromNamespaceAndPath("rifts", "quarry"), RiftsSchemas.QUARRY);
+        }
+
         //HorsePowered (Only Chopping and Grinding are done this way due to custom enum class)
         if (ModList.get().isLoaded("horsepowered")) {
             event.register(Identifier.fromNamespaceAndPath("horsepowered", "chopping"), ChoppingRecipeJS.SCHEMA);
@@ -171,6 +196,21 @@ public class SchemaJSPlugin implements KubeJSPlugin {
 
         if (ModList.get().isLoaded("structureloot")) {
             registry.unit(LootRollComponent.LOOT_ROLL);
+        }
+
+        if (ModList.get().isLoaded("ltxi")) {
+            registry.unit(LTXIItemInputComponent.ITEM_INPUT);
+            registry.unit(LTXIFluidInputComponent.FLUID_INPUT);
+            registry.unit(LTXIItemResultComponent.ITEM_RESULT);
+            registry.unit(LTXIFluidResultComponent.FLUID_RESULT);
+            registry.unit(LTXILocationComponent.LOCATION);
+        }
+
+        if (ModList.get().isLoaded("rifts")) {
+            registry.unit(RiftsBlockTargetComponent.BLOCK_TARGET);
+            registry.unit(RiftsBlockStateResultComponent.BLOCK_STATE_RESULT);
+            registry.unit(RiftsBonusOutputComponent.BONUS_OUTPUT);
+            registry.unit(RiftsQuarryResultComponent.QUARRY_RESULT);
         }
 
         registry.unit(CompoundTagComponent.COMPOUND_TAG);

@@ -126,8 +126,14 @@ dependencies {
     implementation("curse.maven:bbl-casting-1052163:8885331");
     //BBL Casting Tools
     implementation("curse.maven:bbl-casting-tools-1501619:8885234");
+    //BBL Rifts
+    implementation("curse.maven:bbl-rifts-1721086:9667397");
     //Better Tooltips
     implementation("curse.maven:better-advanced-tooltips-1637623:8568911")
+    //LTXI
+    implementation("curse.maven:ltx-industries-1075456:9316472")
+    implementation("curse.maven:limacore-1075362:9243387")
+
 }
 
 tasks.withType(ProcessResources).configureEach {
